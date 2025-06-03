@@ -1,14 +1,11 @@
 # TASA
 The official code for the ACL 2025 paper "Why Safeguarded Ships Run Aground? Aligned Large Language Models' Safety Mechanisms Tend to Be Anchored in The Template Region"
-
-# TASA
-The official code for the ACL 2025 paper "Why Safeguarded Ships Run Aground? Aligned Large Language Models' Safety Mechanisms Tend to Be Anchored in The Template Region"
 <p align="center">
-<img src="data/tasa.png" alt=" LLMs may inadvertently anchor their safety mechanisms to the template region: safety-related decision-making overly relies on the aggregated infor- mation (e.g., harmfulness of input) from that region, potentially causing vulnerabilities." width="500">
+<img src="data/tasa.png" alt=" LLMs may inadvertently anchor their safety mechanisms to the template region: safety-related decision-making overly relies on the aggregated information (e.g., harmfulness of input) from that region, potentially causing vulnerabilities." width="500">
 </p>
 ## Preparation
 
-### Enviroment
+### Environment
 ```sh
 uv venv
 uv sync
@@ -35,7 +32,7 @@ The following script computes the causal effects of each head's value states fro
 ```sh
 uv run get_patching_scores.py --model-path PATH_TO_YOUR_MODEL --dataset DATASET_TYPE
 ```
-The following dataset are supported:
+The following datasets are supported:
 - jbb (i.e, JailbreakBench)
 - hb (i.e, HarmBench)
 
@@ -45,11 +42,11 @@ uv run get_patching_scores.py --model-path /data/models/Meta-Llama-3-8B-Instruct
 ```
 
 #### TempPatch
-The following script implement TempPatch operation to intervene response generation (section 4.1):
+The following script implements TempPatch operation to intervene response generation (section 4.1):
 ```sh
 uv run temppatch.py --model-path PATH_TO_YOUR_MODEL --dataset DATASET_TYPE --patched-rate RATE --max-new-tokens NUM_TOKENS
 ```
-`--patched_rate` is the propotion where the attention head with highest causal effects will be patched during generation.
+`--patched_rate` is the proportion where the attention head with the highest causal effects will be patched during generation.
 
 Example:
 ```sh
