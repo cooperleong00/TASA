@@ -3,8 +3,9 @@ The official code for the ACL 2025 paper "Why Safeguarded Ships Run Aground? Ali
 
 # TASA
 The official code for the ACL 2025 paper "Why Safeguarded Ships Run Aground? Aligned Large Language Models' Safety Mechanisms Tend to Be Anchored in The Template Region"
+<p align="center">
 <img src="data/tasa.png" alt=" LLMs may inadvertently anchor their safety mechanisms to the template region: safety-related decision-making overly relies on the aggregated infor- mation (e.g., harmfulness of input) from that region, potentially causing vulnerabilities." width="500">
-
+</p>
 ## Preparation
 
 ### Enviroment
