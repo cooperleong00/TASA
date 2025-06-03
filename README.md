@@ -3,6 +3,7 @@ The official code for the ACL 2025 paper "Why Safeguarded Ships Run Aground? Ali
 <p align="center">
 <img src="data/tasa.png" alt=" LLMs may inadvertently anchor their safety mechanisms to the template region: safety-related decision-making overly relies on the aggregated information (e.g., harmfulness of input) from that region, potentially causing vulnerabilities." width="500">
 </p>
+
 ## Preparation
 
 ### Environment
@@ -26,8 +27,8 @@ Example:
 uv run get_insts.py --model-path /data/models/Meta-Llama-3-8B-Instruct
 ```
 
-### Inference
-#### Compute head-wise causal effects
+## Inference
+### Compute head-wise causal effects
 The following script computes the causal effects of each head's value states from different regions (section 3.3):
 ```sh
 uv run get_patching_scores.py --model-path PATH_TO_YOUR_MODEL --dataset DATASET_TYPE
@@ -41,7 +42,7 @@ Example:
 uv run get_patching_scores.py --model-path /data/models/Meta-Llama-3-8B-Instruct --dataset jbb 
 ```
 
-#### TempPatch
+### TempPatch
 The following script implements TempPatch operation to intervene response generation (section 4.1):
 ```sh
 uv run temppatch.py --model-path PATH_TO_YOUR_MODEL --dataset DATASET_TYPE --patched-rate RATE --max-new-tokens NUM_TOKENS
@@ -53,7 +54,7 @@ Example:
 uv run temppatch.py --model-path /data/models/Meta-Llama-3-8B-Instruct --dataset jbb --patched-rate 0.1 --max-new-tokens 512
 ```
 
-#### ASR Eval
+### ASR Eval
 The following script evaluates the Attack Success Rate (ASR) of jailbreak responses using both SorryBench evaluation and string matching:
 ```sh
 uv run asr_eval.py --input_file PATH_TO_JSONL_FILE --model_path PATH_TO_EVALUATION_MODEL
